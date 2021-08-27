@@ -2,18 +2,18 @@
 
 class Bottles
 
-  def verses(starting, ending)
-    starting.downto(ending).collect {|i| verse(i)}.join("\n")
-  end
-
   def song
     verses(99, 0)
   end
 
-  def verse(num)
+  def verses(starting, ending)
+    starting.downto(ending).collect {|i| verse(i)}.join("\n")
+  end
+
+  def verse(number)
         <<-Verse
-#{quantity(num).capitalize} #{container(num)} of beer on the wall, #{quantity(num)} #{container(num)} of beer.
-#{action(num)}, #{quantity(sucessor(num))} #{container(sucessor(num))} of beer on the wall.
+#{quantity(number).capitalize} #{container(number)} of beer on the wall, #{quantity(number)} #{container(number)} of beer.
+#{action(number)}, #{quantity(sucessor(number))} #{container(sucessor(number))} of beer on the wall.
         Verse
   end
 
