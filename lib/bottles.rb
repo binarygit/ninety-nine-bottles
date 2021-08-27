@@ -10,16 +10,27 @@ class Bottles
 No more bottles of beer on the wall, no more bottles of beer.
 Go to the store and buy some more, 99 bottles of beer on the wall.
       Verse
-    when 1
-        <<-Verse
-1 bottle of beer on the wall, 1 bottle of beer.
-Take it down and pass it around, no more bottles of beer on the wall.
-        Verse
     else
         <<-Verse
-#{num} bottles of beer on the wall, #{num} bottles of beer.
-Take one down and pass it around, #{num-1} #{container(num-1)} of beer on the wall.
+#{num} #{container(num)} of beer on the wall, #{num} #{container(num)} of beer.
+Take #{pronoun(num)} down and pass it around, #{quantity(num - 1)} #{container(num-1)} of beer on the wall.
         Verse
+    end
+  end
+
+  def quantity(number = 0)
+    if number == 0
+      'no more'
+    else
+      number
+    end
+  end
+
+  def pronoun(number) 
+    if number == 1
+      'it'
+    else
+      'one'
     end
   end
 
