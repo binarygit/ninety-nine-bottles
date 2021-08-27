@@ -2,17 +2,8 @@
 
 class Bottles
 
-  def verses(start_from, end_in)
-    verses = []
-    i = 0
-    loop do 
-      num = start_from - i
-      verses.push(verse(num))
-      break if num == end_in
-      verses.push("\n")
-      i += 1
-    end
-   verses.reduce { |first, second| first + second}
+  def verses(starting, ending)
+    starting.downto(ending).collect {|i| verse(i)}.join("\n")
   end
 
   def song
